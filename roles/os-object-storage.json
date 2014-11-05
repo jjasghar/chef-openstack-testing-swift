@@ -1,0 +1,13 @@
+{
+  "name": "os-object-storage",
+  "description": "OpenStack object storage roll-up role",
+  "run_list": [
+    "role[os-base]",
+    "recipe[openstack-object-storage::setup]",
+    "role[os-object-storage-account-server]",
+    "role[os-object-storage-container-server]",
+    "role[os-object-storage-management-server]",
+    "role[os-object-storage-object-server]",
+    "role[os-object-storage-proxy-server]"
+  ]
+}
