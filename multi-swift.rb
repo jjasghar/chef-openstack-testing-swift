@@ -19,8 +19,11 @@ ENDCONFIG
 
 machine 'aio-storage' do
   machine_options :vagrant_config => aiostorage_config
+  recipe 'apt'
+  role 'os-identity'
   role 'os-object-storage'
   chef_environment 'multi-swift'
+  file '/etc/chef/openstack_data_bag_secret','/Users/jasghar/repo/swift-stack/.chef/encrypted_data_bag_secret'
   converge true
 end
 
@@ -39,6 +42,7 @@ ENDCONFIG
 
 machine 'storage1' do
   machine_options :vagrant_config => storage1_config
+  recipe 'apt'
   role 'os-object-storage-object-server'
   chef_environment 'multi-swift'
   converge true
@@ -59,8 +63,9 @@ ENDCONFIG
 
 machine 'storage2' do
   machine_options :vagrant_config => storage2_config
+  recipe 'apt'
   role 'os-object-storage-object-server'
-    chef_environment 'multi-swift'
+  chef_environment 'multi-swift'
   converge true
 end
 
@@ -79,6 +84,7 @@ ENDCONFIG
 
 machine 'storage3' do
   machine_options :vagrant_config => storage3_config
+  recipe 'apt'
   role 'os-object-storage-object-server'
   chef_environment 'multi-swift'
   converge true
